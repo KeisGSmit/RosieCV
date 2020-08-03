@@ -26,11 +26,10 @@ function fetchGitHubInformation(_event){
         </div>`);
 
     $.when(
-        $.getJSON(`https://api.github.come/users/${username}`)
+        $.getJSON(`https://api.github.com/users/${username}`)
     ).then(
-        function (response){
-            var userData = response;
-            $('#gh-user-data').html(userInformationHTML(userdata));
+        function (_response){
+            $('#gh-user-data').html(userInformationHTML(_response));
         }, function(errorResponse){
             if (errorResponse.status === 404){
                 $("#gh-user-data").html(
